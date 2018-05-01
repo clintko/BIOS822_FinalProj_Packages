@@ -6,7 +6,7 @@
 #' f("example")
 #' @export
 #' export is a oxgen comment to make export available for user
-f <- function(x){
+ex_f <- function(x){
     print(paste("hello", x))
 }
 
@@ -14,6 +14,6 @@ f <- function(x){
 #'
 #' @param x any printable object
 #' @export
-g <- function(x){
+ex_g <- function(x){
     print(paste("goodbye", x))
 }
