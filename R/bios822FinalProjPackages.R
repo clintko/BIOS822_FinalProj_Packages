@@ -13,7 +13,7 @@ preprocess_flowdata <- function(fdat_raw, col_name){
     mat_spill  <- fdat_raw@description$'SPILL'
 
     # Compensation
-    fdat_comp  <- flowCore::compensate(fdat_raw, spill)
+    fdat_comp  <- flowCore::compensate(fdat_raw, mat_spill)
 
     # Transformation
     fdat_trans <- flowCore::transform(
