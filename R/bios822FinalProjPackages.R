@@ -21,3 +21,18 @@ preprocess_flowdata <- function(fdat_raw, col_name){
         flowCore::transformList(col_name, asinh))
     return(fdat_trans)
 }
+
+#' Preprocess a flowframe by inputting file name
+#'
+#' a wrapper function of preprocess_flowdata
+#'
+#' @param file_name (str) fcs file name
+#' @return fdat_trans (flowFrame) preprocessed fcs data
+#' @export
+read_preprocess_flowdata <- function(file_name, col_name){
+    fdat_raw   <- flowCore::read.FCS(
+        file.path(datadir, file_name),
+        transformation = FALSE)
+    fdat_trans <- preprocess_flowdata(fdat_raw, col_name)
+    return(fdat_trans)
+}
