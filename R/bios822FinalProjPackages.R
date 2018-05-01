@@ -8,17 +8,16 @@
 #' @return fdat_trans (flowFrame) flow data after compensation & arcsinh transformation
 #' @export
 preprocess_flowdata <- function(fdat_raw, col_name){
-    require(flowCore)
-
+    #require(flowCore)
     # spillover matrix
     mat_spill  <- fdat_raw@description$'SPILL'
 
     # Compensation
-    fdat_comp  <- compensate(fdat_raw, spill)
+    fdat_comp  <- flowCore::compensate(fdat_raw, spill)
 
     # Transformation
-    fdat_trans <- transform(
+    fdat_trans <- flowCore::transform(
         fdat_comp,
-        transformList(col_name, asinh))
+        flowCore::transformList(col_name, asinh))
     return(fdat_trans)
 }
